@@ -119,6 +119,18 @@ module ActiveMerchant #:nodoc:
         end.responses.last
       end
 
+      def create_intent(money, payment_method, options = {})
+        post = create_post_for_auth_or_purchase(money, nil, options)
+        post[:payment_method] = payment_method
+        add_methods(post, options)
+        post.delete(:payment_user_agent)
+        commit(:post, 'payment_intents', post, options)
+      end
+
+      def show_intent(intent_id, options = {})
+        commit(:get, "payment_intents/#{CGI.escape(intent_id)}", nil, options)
+      end
+
       def capture(money, authorization, options = {})
         post = {}
 
@@ -230,6 +242,18 @@ module ActiveMerchant #:nodoc:
 
       def update_customer(customer_id, options = {})
         commit(:post, "customers/#{CGI.escape(customer_id)}", options, options)
+      end
+
+      def update_intent(intent_id, options = {})
+        if options.delete(:confirm)
+          commit(:post, "payment_intents/#{CGI.escape(intent_id)}/confirm", options, options)
+        elsif options.delete(:capture)
+          commit(:post, "payment_intents/#{CGI.escape(intent_id)}/capture", options, options)
+        elsif options.delete(:cancel)
+          commit(:post, "payment_intents/#{CGI.escape(intent_id)}/cancel", options, options)
+        else
+          commit(:post, "payment_intents/#{CGI.escape(intent_id)}", options, options)
+        end
       end
 
       def unstore(identification, options = {}, deprecated_options = {})
@@ -528,6 +552,12 @@ module ActiveMerchant #:nodoc:
       def add_emv_metadata(post, creditcard)
         post[:metadata] ||= {}
         post[:metadata][:card_read_method] = creditcard.read_method if creditcard.respond_to?(:read_method)
+      end
+
+      def add_methods(post, methods = {})
+        post[:confirmation_method] = methods[:confirmation_method]
+        post[:capture_method] = methods[:capture_method]
+        post[:save_payment_method] = methods[:save_payment_method]
       end
 
       def parse(body)
