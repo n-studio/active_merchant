@@ -156,7 +156,6 @@ The [ActiveMerchant Wiki](https://github.com/activemerchant/active_merchant/wiki
 * [Merchant One Gateway](http://merchantone.com/) - US
 * [MerchantWARE](http://merchantwarehouse.com/merchantware) - US
 * [MerchantWarrior](http://www.merchantwarrior.com/) - AU
-* [Mercury](http://www.mercurypay.com) - US, CA
 * [Metrics Global](http://www.metricsglobal.com) - US
 * [MasterCard Internet Gateway Service (MiGS)](http://mastercard.com/mastercardsps) - AU, AE, BD, BN, EG, HK, ID, IN, JO, KW, LB, LK, MU, MV, MY, NZ, OM, PH, QA, SA, SG, TT, VN
 * [Modern Payments](http://www.modpay.com) - US

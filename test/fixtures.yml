@@ -607,16 +607,6 @@ merchant_warrior:
   api_key: '8fr3ajm7'
   api_passphrase: 'cymvlwgc'
 
-# Working credentials, no need to replace
-mercury:
-  login: '089716741701445'
-  password: 'xyz'
-
-mercury_no_tokenization:
-  login: '595901'
-  password: 'xyz'
-  tokenization: false
-
 metrics_global:
   login: 'demo'
   password: 'password'
@@ -1178,7 +1168,7 @@ raven_pac_net:
 
 reach:
   merchant_id: 'xxxxxxx'
-  secret: 'xxxxxxx' 
+  secret: 'xxxxxxx'
 
 realex:
   login: X
@@ -1334,7 +1324,7 @@ shift4_v2:
 # Working credentials, no need to replace
 simetrik:
   client_id: 'wNhJBdrKDk3vTmkQMAWi5zWN7y21adO3'
-  client_secret: 'fq2riPpiDJaAwS4_UMAXZy1_nU1jNGz0F6gAFWOJFNmm_TfC8EFiHwMmGKAEDkwY' 
+  client_secret: 'fq2riPpiDJaAwS4_UMAXZy1_nU1jNGz0F6gAFWOJFNmm_TfC8EFiHwMmGKAEDkwY'
 
 #  Replace with your serial numbers for the skipjack test environment
 skipjack:
